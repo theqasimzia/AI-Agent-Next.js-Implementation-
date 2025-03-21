@@ -1,0 +1,143 @@
+.sessionsContainer {
+    width: 260px;
+    height: 100%;
+    background: var(--bg-secondary);
+    border-right: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+  
+  .newChatButton {
+    margin: 16px;
+    padding: 8px 16px;
+    border-radius: 8px;
+    background: var(--bg-button);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+  }
+  
+  .newChatButton:hover {
+    background: var(--bg-button-hover);
+  }
+  
+  .sessionsList {
+    flex: 1;
+    overflow-y: auto;
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  
+  .sessionItem {
+    display: flex;
+    align-items: center;
+    padding: 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    position: relative;
+  }
+  
+  .sessionItem:hover {
+    background: var(--bg-hover);
+  }
+  
+  .sessionItem:hover .deleteButton {
+    opacity: 1;
+  }
+  
+  .sessionItem.active {
+    background: var(--bg-active);
+  }
+  
+  .sessionIcon {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-secondary);
+  }
+  
+  .sessionInfo {
+    flex: 1;
+    margin-left: 12px;
+    overflow: hidden;
+  }
+  
+  .sessionTitle {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-primary);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  .sessionTimestamp {
+    font-size: 12px;
+    color: var(--text-secondary);
+    margin-top: 2px;
+  }
+  
+  .deleteButton {
+    opacity: 0;
+    padding: 4px;
+    border-radius: 4px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: var(--text-secondary);
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .deleteButton:hover {
+    background: var(--bg-danger);
+    color: var(--text-danger);
+  }
+  
+  /* Scrollbar styling */
+  .sessionsList::-webkit-scrollbar {
+    width: 4px;
+  }
+  
+  .sessionsList::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  .sessionsList::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+    border-radius: 2px;
+  }
+  
+  .sessionsList::-webkit-scrollbar-thumb:hover {
+    background: var(--text-secondary);
+  }
+  
+  /* Animation for new sessions */
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateX(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  .sessionItem {
+    animation: slideIn 0.3s ease;
+  }

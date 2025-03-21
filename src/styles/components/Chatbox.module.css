@@ -1,0 +1,77 @@
+.chatbox {
+    flex: 1;
+    overflow-y: auto;
+    padding: 20px;
+    position: relative;
+    background: var(--bg-chat);
+  }
+  
+  .messagesContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding-bottom: 20px;
+  }
+  
+  .emptyState {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    color: var(--text-secondary);
+  }
+  
+  .emptyIcon {
+    font-size: 48px;
+    margin-bottom: 16px;
+  }
+  
+  .emptyState h3 {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--text-primary);
+  }
+  
+  .emptyState p {
+    font-size: 14px;
+    max-width: 240px;
+  }
+  
+  /* Scrollbar styling */
+  .chatbox::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  .chatbox::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  .chatbox::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+    border-radius: 4px;
+  }
+  
+  .chatbox::-webkit-scrollbar-thumb:hover {
+    background: var(--text-secondary);
+  }
+  
+  /* Animation for new messages */
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .messagesContainer > * {
+    animation: slideIn 0.3s ease;
+  }
